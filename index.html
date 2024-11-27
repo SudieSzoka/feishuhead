@@ -373,19 +373,24 @@
         const imageUpload = document.getElementById('imageUpload');
 
         // 加载字体
-        async function loadFonts() {
-            try {
-                const response = await fetch('/fonts');
-                const fonts = await response.json();
-                fonts.forEach(font => {
-                    const option = document.createElement('option');
-                    option.value = font;
-                    option.textContent = font;
-                    fontSelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error('加载字体失败:', error);
-            }
+        function loadFonts() {
+            const fonts = [
+                "Arial",
+                "Helvetica",
+                "Times New Roman",
+                "微软雅黑",
+                "宋体",
+                "黑体",
+                "楷体",
+                "仿宋"
+            ];
+            
+            fonts.forEach(font => {
+                const option = document.createElement('option');
+                option.value = font;
+                option.textContent = font;
+                fontSelect.appendChild(option);
+            });
         }
 
         // 创建渐变预设
